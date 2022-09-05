@@ -188,10 +188,12 @@ Widget cho phép chúng ta định nghĩa một phần trên MHHT (màn hình hi
 
 Khi lục lọi source code của Flutter, các bạn sẽ thấy Widget được định nghĩa như sau:
 
-[@immutable](http://twitter.com/immutable)  
+```dart
+@immutable
 abstract class Widget extends DiagnosticableTree {  
   const Widget({ this.key });final Key key;...  
 }
+```
 
 Vậy là sao?
 
@@ -203,6 +205,7 @@ Annotation ***@immutable*** ở đây đóng vai trò rất quan trọng: **N
 
 Khi định nghĩa cấu trúc cho một screen bằng Widget thì chúng ta sẽ có đoạn code kiểu như sau:
 
+```dart
 Widget build(BuildContext context){  
     return SafeArea(  
         child: Scaffold(  
@@ -217,6 +220,7 @@ Widget build(BuildContext context){
         ),  
     );  
 }
+```
 
 Ví dụ ở trên sử dụng 7 widget, cùng nhau chúng tạo nên một cấu trúc phân cấp. Phía dưới là thể hiện dưới dạng diagram dễ nhìn hơn:
 
@@ -228,9 +232,11 @@ Như các bạn thấy đấy, nó là một cấu trúc dạng cây với root 
 
 Tiêu đề không sai đâu các bạn. Bởi nếu các bạn chưa biết thì tự bản thân một widget nó đã có thể là tổng hợp của rất nhiều widget khác (cũng dưới dạng tree). Hay nói dễ hiểu hơn thì một widget có thể là đại diện cho một widget tree khác. Ví dụ chúng ta có thể viết lại đoạn code trên như sau:
 
+```dart
 Widget build(BuildContext context){  
     return MyOwnWidget();  
 }
+```
 
 Ở đây thì `MyOwnWidget` đại diện cho cả cái widget tree bao gồm `SafeArea`, `Scaffold`...
 
@@ -285,7 +291,7 @@ Như các bạn có thể thấy thì Element đang được chia thành 2 loạ
 
 Giờ thì chúng ta hãy cùng tìm hiểu mối quan hệ giữa `Widget` và `Element` là thế nào nhé.
 
-# Widget và Element hoạt động với nhau dư lào
+# Widget và Element hoạt động với nhau dư nào
 
 > *Trong Flutter, việc trigger render frame mới có thể thực hiện qua việc invalidate (đánh dấu vô hiệu) element hoặc render object.*
 
@@ -397,11 +403,13 @@ Mỗi sự kiện tick này sẽ được animation controller intercept để c
 
 ## BuildContext
 
-Nếu các bạn chưa xem qua class `Element` thì cụ tỉ signature của nó là dư lày:
+Nếu các bạn chưa xem qua class `Element` thì cụ tỉ signature của nó là dư này:
 
+```dart
 abstract class Element extends DiagnosticableTree implements BuildContext {  
     ...  
 }
+```
 
 Nhìn lướt qua thì chắc mọi người sẽ nhận ra thứ khá quen thuộc: [BuildContext](https://docs.flutter.io/flutter/widgets/BuildContext-class.html). Chúng ta chủ yếu chỉ dùng `BuildContext` trong hàm `build()` của StatelessWidget và StatefulWidget, hoặc là trong object **State** của StatefulWidget
 

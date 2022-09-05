@@ -12,19 +12,25 @@
 
 - [x] Keys
 
-- [ ] OOP Principles
+- [ ] Zone
+
+- [x] Stream - vietnamese
 
 - [x] SOLID Principles
 
-- [ ] Isolate 
+- [x] Isolate 
 
 - [x] Stream
 
-- [ ] RxDart
+- [x] RxDart
 
-- [ ] Singleton pattern
+- [x] Singleton pattern
+
+- [x] unit test
 
 - [ ] ----------- mini break
+
+- [ ] OOP Principles
 
 - [ ] Maintain docs => image to local
 
@@ -50,4 +56,4 @@
 
 ## Doing
 
-Singleton pattern
+zone
